@@ -1,0 +1,306 @@
+[
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "zipfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "zipfile",
+        "description": "zipfile",
+        "detail": "zipfile",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "Counter",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "urlparse",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "count_links",
+        "kind": 2,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "def count_links(text):\n    return len(re.findall(r\"http\\S+|www\\S+\", text))\ndef is_question(text):\n    question_words = [\n        \"what\", \"why\", \"when\", \"where\",\n        \"who\", \"how\", \"which\", \"can\",\n        \"could\", \"do\", \"does\", \"is\", \"are\"\n    ]\n    text_lower = text.lower()\n    return (",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "is_question",
+        "kind": 2,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "def is_question(text):\n    question_words = [\n        \"what\", \"why\", \"when\", \"where\",\n        \"who\", \"how\", \"which\", \"can\",\n        \"could\", \"do\", \"does\", \"is\", \"are\"\n    ]\n    text_lower = text.lower()\n    return (\n        \"?\" in text\n        or any(text_lower.startswith(word + \" \") for word in question_words)",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "word_count",
+        "kind": 2,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "def word_count(text):\n    return len(text.split())\ndef char_count(text):\n    return len(text)\ndef contains_media(text):\n    media_patterns = [\n        \"<media omitted>\",\n        \"image omitted\",\n        \"video omitted\",\n        \"audio omitted\",",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "char_count",
+        "kind": 2,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "def char_count(text):\n    return len(text)\ndef contains_media(text):\n    media_patterns = [\n        \"<media omitted>\",\n        \"image omitted\",\n        \"video omitted\",\n        \"audio omitted\",\n        \"sticker omitted\",\n        \"document omitted\"",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "contains_media",
+        "kind": 2,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "def contains_media(text):\n    media_patterns = [\n        \"<media omitted>\",\n        \"image omitted\",\n        \"video omitted\",\n        \"audio omitted\",\n        \"sticker omitted\",\n        \"document omitted\"\n    ]\n    return any(pattern in text.lower() for pattern in media_patterns)",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "extract_domains",
+        "kind": 2,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "def extract_domains(text):\n    urls = re.findall(r\"http\\S+|www\\S+\", text)\n    domains = []\n    for url in urls:\n        if not url.startswith(\"http\"):\n            url = \"https://\" + url\n        try:\n            domain = urlparse(url).netloc\n            domains.append(domain)\n        except:",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "zip_path",
+        "kind": 5,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "zip_path = r\"D:\\workspace\\SRH\\Semester_2\\NLP\\WA\\WhatsApp Chat - Data Science 2025 1.zip\"\nwith zipfile.ZipFile(zip_path, \"r\") as zip_ref:\n    # Get all files inside ZIP\n    file_names = zip_ref.namelist()\n    print(\"\\nFiles found inside ZIP:\\n\")\n    for f in file_names:\n        print(f)\n    # Find txt file safely\n    txt_files = [f for f in file_names if f.lower().endswith(\".txt\")]\n    if len(txt_files) == 0:",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "patterns",
+        "kind": 5,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "patterns = [\n    # Android format: 18/05/2026, 10:30 - Name: Message\n    r\"^(\\d{1,2}/\\d{1,2}/\\d{2,4}),\\s(\\d{1,2}:\\d{2})\\s-\\s([^:]+):\\s(.*)\",\n    # iPhone format: [18/05/2026, 10:30:12] Name: Message\n    r\"^\\[(\\d{1,2}/\\d{1,2}/\\d{2,4}),\\s(\\d{1,2}:\\d{2}(?::\\d{2})?)\\]\\s([^:]+):\\s(.*)\",\n    # iPhone format with dash: [18/05/2026, 10:30:12] - Name: Message\n    r\"^\\[(\\d{1,2}/\\d{1,2}/\\d{2,4}),\\s(\\d{1,2}:\\d{2}(?::\\d{2})?)\\]\\s-\\s([^:]+):\\s(.*)\"\n]\nmessages = []\nfor line in lines:",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "kind": 5,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "messages = []\nfor line in lines:\n    matched = False\n    for pattern in patterns:\n        match = re.match(pattern, line)\n        if match:\n            date, time, sender, message = match.groups()\n            messages.append({\n                \"date\": date,\n                \"time\": time,",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "df = pd.DataFrame(messages)\nprint(\"\\nTotal messages parsed:\", len(df))\nprint(\"Columns:\", df.columns.tolist())\nif df.empty:\n    print(\"\\nNo messages parsed. First 20 lines from chat file:\")\n    for line in lines[:20]:\n        print(line)\n    raise Exception(\"Parser could not detect your WhatsApp format.\")\n# -----------------------------\n# 4. NLP Feature Extraction",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "df[\"word_count\"]",
+        "kind": 5,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "df[\"word_count\"] = df[\"clean_message\"].apply(word_count)\ndf[\"char_count\"] = df[\"message\"].apply(char_count)\ndf[\"link_count\"] = df[\"message\"].apply(count_links)\ndf[\"is_question\"] = df[\"message\"].apply(is_question)\ndf[\"has_media\"] = df[\"message\"].apply(contains_media)\n# -----------------------------\n# 5. User-wise Analysis\n# -----------------------------\nsummary = df.groupby(\"sender\").agg(\n    total_messages=(\"message\", \"count\"),",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "df[\"char_count\"]",
+        "kind": 5,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "df[\"char_count\"] = df[\"message\"].apply(char_count)\ndf[\"link_count\"] = df[\"message\"].apply(count_links)\ndf[\"is_question\"] = df[\"message\"].apply(is_question)\ndf[\"has_media\"] = df[\"message\"].apply(contains_media)\n# -----------------------------\n# 5. User-wise Analysis\n# -----------------------------\nsummary = df.groupby(\"sender\").agg(\n    total_messages=(\"message\", \"count\"),\n    total_words=(\"word_count\", \"sum\"),",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "df[\"link_count\"]",
+        "kind": 5,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "df[\"link_count\"] = df[\"message\"].apply(count_links)\ndf[\"is_question\"] = df[\"message\"].apply(is_question)\ndf[\"has_media\"] = df[\"message\"].apply(contains_media)\n# -----------------------------\n# 5. User-wise Analysis\n# -----------------------------\nsummary = df.groupby(\"sender\").agg(\n    total_messages=(\"message\", \"count\"),\n    total_words=(\"word_count\", \"sum\"),\n    total_characters=(\"char_count\", \"sum\"),",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "df[\"is_question\"]",
+        "kind": 5,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "df[\"is_question\"] = df[\"message\"].apply(is_question)\ndf[\"has_media\"] = df[\"message\"].apply(contains_media)\n# -----------------------------\n# 5. User-wise Analysis\n# -----------------------------\nsummary = df.groupby(\"sender\").agg(\n    total_messages=(\"message\", \"count\"),\n    total_words=(\"word_count\", \"sum\"),\n    total_characters=(\"char_count\", \"sum\"),\n    questions_asked=(\"is_question\", \"sum\"),",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "df[\"has_media\"]",
+        "kind": 5,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "df[\"has_media\"] = df[\"message\"].apply(contains_media)\n# -----------------------------\n# 5. User-wise Analysis\n# -----------------------------\nsummary = df.groupby(\"sender\").agg(\n    total_messages=(\"message\", \"count\"),\n    total_words=(\"word_count\", \"sum\"),\n    total_characters=(\"char_count\", \"sum\"),\n    questions_asked=(\"is_question\", \"sum\"),\n    links_sent=(\"link_count\", \"sum\"),",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "summary",
+        "kind": 5,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "summary = df.groupby(\"sender\").agg(\n    total_messages=(\"message\", \"count\"),\n    total_words=(\"word_count\", \"sum\"),\n    total_characters=(\"char_count\", \"sum\"),\n    questions_asked=(\"is_question\", \"sum\"),\n    links_sent=(\"link_count\", \"sum\"),\n    media_sent=(\"has_media\", \"sum\")\n).reset_index()\nsummary[\"avg_words_per_message\"] = (\n    summary[\"total_words\"] / summary[\"total_messages\"]",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "summary[\"avg_words_per_message\"]",
+        "kind": 5,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "summary[\"avg_words_per_message\"] = (\n    summary[\"total_words\"] / summary[\"total_messages\"]\n).round(2)\nsummary = summary.sort_values(\n    by=\"total_messages\",\n    ascending=False\n)\n# -----------------------------\n# 6. Link Domain Analysis\n# -----------------------------",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "summary",
+        "kind": 5,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "summary = summary.sort_values(\n    by=\"total_messages\",\n    ascending=False\n)\n# -----------------------------\n# 6. Link Domain Analysis\n# -----------------------------\ndef extract_domains(text):\n    urls = re.findall(r\"http\\S+|www\\S+\", text)\n    domains = []",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "all_domains",
+        "kind": 5,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "all_domains = []\nfor msg in df[\"message\"]:\n    all_domains.extend(extract_domains(msg))\ndomain_summary = pd.DataFrame(\n    Counter(all_domains).items(),\n    columns=[\"domain\", \"count\"]\n)\ndomain_summary = domain_summary.sort_values(\n    by=\"count\",\n    ascending=False",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "domain_summary",
+        "kind": 5,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "domain_summary = pd.DataFrame(\n    Counter(all_domains).items(),\n    columns=[\"domain\", \"count\"]\n)\ndomain_summary = domain_summary.sort_values(\n    by=\"count\",\n    ascending=False\n)\n# -----------------------------\n# 7. Export Results",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "domain_summary",
+        "kind": 5,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "domain_summary = domain_summary.sort_values(\n    by=\"count\",\n    ascending=False\n)\n# -----------------------------\n# 7. Export Results\n# -----------------------------\noutput_file = \"whatsapp_nlp_classification.xlsx\"\nwith pd.ExcelWriter(output_file, engine=\"openpyxl\") as writer:\n    df.to_excel(",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "output_file",
+        "kind": 5,
+        "importPath": "1",
+        "description": "1",
+        "peekOfCode": "output_file = \"whatsapp_nlp_classification.xlsx\"\nwith pd.ExcelWriter(output_file, engine=\"openpyxl\") as writer:\n    df.to_excel(\n        writer,\n        sheet_name=\"Parsed Messages\",\n        index=False\n    )\n    summary.to_excel(\n        writer,\n        sheet_name=\"User Summary\",",
+        "detail": "1",
+        "documentation": {}
+    },
+    {
+        "label": "zip_path",
+        "kind": 5,
+        "importPath": "2",
+        "description": "2",
+        "peekOfCode": "zip_path = r\"D:\\workspace\\SRH\\Semester_2\\NLP\\WA\\WhatsApp Chat - Data Science 2025 1.zip\"\n# Read ZIP\nwith zipfile.ZipFile(zip_path, \"r\") as zip_ref:\n    txt_file = [f for f in zip_ref.namelist() if f.endswith(\".txt\")][0]\n    with zip_ref.open(txt_file) as file:\n        lines = file.read().decode(\"utf-8\", errors=\"ignore\").splitlines()\n# WhatsApp pattern\npattern = r\"^\\[?(\\d{1,2}\\.\\d{1,2}\\.\\d{2,4}),\"\nmessages = []\n# Extract sender + message",
+        "detail": "2",
+        "documentation": {}
+    },
+    {
+        "label": "pattern",
+        "kind": 5,
+        "importPath": "2",
+        "description": "2",
+        "peekOfCode": "pattern = r\"^\\[?(\\d{1,2}\\.\\d{1,2}\\.\\d{2,4}),\"\nmessages = []\n# Extract sender + message\nfor line in lines:\n    line = line.replace(\"\\u200e\", \"\").replace(\"\\u202f\", \" \").strip()\n    if re.match(pattern, line):\n        try:\n            sender = line.split(\"] \")[1].split(\":\")[0]\n            message = line.split(\": \", 1)[1]\n            messages.append([sender, message])",
+        "detail": "2",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "kind": 5,
+        "importPath": "2",
+        "description": "2",
+        "peekOfCode": "messages = []\n# Extract sender + message\nfor line in lines:\n    line = line.replace(\"\\u200e\", \"\").replace(\"\\u202f\", \" \").strip()\n    if re.match(pattern, line):\n        try:\n            sender = line.split(\"] \")[1].split(\":\")[0]\n            message = line.split(\": \", 1)[1]\n            messages.append([sender, message])\n        except:",
+        "detail": "2",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "2",
+        "description": "2",
+        "peekOfCode": "df = pd.DataFrame(messages, columns=[\"sender\", \"message\"])\n# NLP features\ndf[\"is_question\"] = df[\"message\"].str.contains(r\"\\?\")\ndf[\"has_link\"] = df[\"message\"].str.contains(r\"http|www\")\n# User summary\nsummary = df.groupby(\"sender\").agg(\n    total_messages=(\"message\", \"count\"),\n    questions=(\"is_question\", \"sum\"),\n    links=(\"has_link\", \"sum\")\n).sort_values(by=\"total_messages\", ascending=False)",
+        "detail": "2",
+        "documentation": {}
+    },
+    {
+        "label": "df[\"is_question\"]",
+        "kind": 5,
+        "importPath": "2",
+        "description": "2",
+        "peekOfCode": "df[\"is_question\"] = df[\"message\"].str.contains(r\"\\?\")\ndf[\"has_link\"] = df[\"message\"].str.contains(r\"http|www\")\n# User summary\nsummary = df.groupby(\"sender\").agg(\n    total_messages=(\"message\", \"count\"),\n    questions=(\"is_question\", \"sum\"),\n    links=(\"has_link\", \"sum\")\n).sort_values(by=\"total_messages\", ascending=False)\n# Output\nprint(\"\\n===== WHATSAPP NLP ANALYSIS =====\\n\")",
+        "detail": "2",
+        "documentation": {}
+    },
+    {
+        "label": "df[\"has_link\"]",
+        "kind": 5,
+        "importPath": "2",
+        "description": "2",
+        "peekOfCode": "df[\"has_link\"] = df[\"message\"].str.contains(r\"http|www\")\n# User summary\nsummary = df.groupby(\"sender\").agg(\n    total_messages=(\"message\", \"count\"),\n    questions=(\"is_question\", \"sum\"),\n    links=(\"has_link\", \"sum\")\n).sort_values(by=\"total_messages\", ascending=False)\n# Output\nprint(\"\\n===== WHATSAPP NLP ANALYSIS =====\\n\")\nprint(summary)",
+        "detail": "2",
+        "documentation": {}
+    },
+    {
+        "label": "summary",
+        "kind": 5,
+        "importPath": "2",
+        "description": "2",
+        "peekOfCode": "summary = df.groupby(\"sender\").agg(\n    total_messages=(\"message\", \"count\"),\n    questions=(\"is_question\", \"sum\"),\n    links=(\"has_link\", \"sum\")\n).sort_values(by=\"total_messages\", ascending=False)\n# Output\nprint(\"\\n===== WHATSAPP NLP ANALYSIS =====\\n\")\nprint(summary)\n# Save\nsummary.to_excel(\"whatsapp_summary.xlsx\")",
+        "detail": "2",
+        "documentation": {}
+    }
+]
